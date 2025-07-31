@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=1200" />
+        <title>Rusty Meadows – Creative Strategist & Engineer</title>
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Fraunces:wght@400;600&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --border: 20px;
+                --gutter: 20px;
+                --bg: #f6f2ea;
+                --text: #191815;
+                --headline: #101010;
+                --cta: #232318;
+                --cta-text: #f6f2ea;
+                --label-bg: rgba(245, 242, 225, 0.94);
+                --label-text: #191815;
+                --card-bg: #fff;
+                --card-radius: 8px;
+            }
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                background: var(--bg);
+                font-family: "Fraunces", serif;
+                color: var(--text);
+            }
+            body {
+                box-sizing: border-box;
+                min-height: 100vh;
+                min-width: 1200px;
+                border: var(--border) solid var(--bg);
+                display: grid;
+                grid-template-columns: repeat(10, 1fr);
+                grid-template-rows: repeat(6, 1fr);
+                gap: var(--gutter);
+                height: 100vh;
+                width: 100vw;
+                overflow: hidden;
+            }
+            .sidebar {
+                grid-row: 1 / 7;
+                grid-column: 1 / 5;
+                background: var(--bg);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                position: sticky;
+                left: 0;
+                top: 0;
+                padding: 0 0 0 10px;
+                z-index: 10;
+                border-radius: 16px;
+            }
+            .sidebar-content {
+                padding: 0 0 0 0;
+                display: flex;
+                flex-direction: column;
+                gap: 28px;
+            }
+            .main {
+                grid-row: 1 / 7;
+                grid-column: 5 / 11;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                overflow: hidden;
+            }
+            .project-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: var(--gutter);
+                height: 100%;
+                margin-top: 0;
+                overflow-y: auto;
+                padding-bottom: 24px;
+            }
+            .project-card {
+                background: var(--card-bg);
+                border-radius: var(--card-radius);
+                box-shadow: 0 1px 8px rgba(20, 19, 14, 0.04);
+                overflow: hidden;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                min-height: 240px;
+                aspect-ratio: 1 / 1;
+            }
+            .project-card img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                min-height: 180px;
+            }
+            .project-label {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: var(--label-bg);
+                color: var(--label-text);
+                font-family: "Fraunces", serif;
+                font-size: 1.08rem;
+                font-weight: 600;
+                padding: 20px 0 20px 0;
+                text-align: center;
+                letter-spacing: 0.02em;
+                border-top: 1px solid #ece7db;
+            }
+            .intro {
+                font-size: 1.15rem;
+                margin-bottom: 18px;
+                font-family: "Fraunces", serif;
+                color: var(--text);
+                line-height: 1.46;
+                margin-top: 4px;
+            }
+            h1,
+            h2 {
+                font-family: "Jost", sans-serif;
+                color: var(--headline);
+                font-weight: 700;
+                margin: 0;
+            }
+            h1 {
+                font-size: 3.1rem;
+                line-height: 1;
+                margin-bottom: 0.18em;
+            }
+            h2 {
+                font-size: 1.42rem;
+                margin: 36px 0 6px 0;
+                letter-spacing: 0.01em;
+            }
+            .projects-list,
+            .clients-list {
+                margin: 0 0 10px 0;
+                padding-left: 16px;
+            }
+            .projects-list li,
+            .clients-list li {
+                font-family: "Fraunces", serif;
+                font-size: 1.04rem;
+                margin-bottom: 2px;
+                color: var(--text);
+            }
+            .contact-bar {
+                margin-top: 12px;
+                background: var(--cta);
+                color: var(--cta-text);
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 24px;
+                padding: 10px 24px 8px 18px;
+                font-size: 1.01rem;
+            }
+            .contact-bar a {
+                color: var(--cta-text);
+                text-decoration: none;
+                font-family: "Jost", sans-serif;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                font-size: 0.97rem;
+                font-weight: 600;
+                margin-left: 10px;
+                transition: color 0.17s;
+            }
+            .contact-bar a:hover {
+                color: #c6b774;
+                text-decoration: underline;
+            }
+            .contact-bar span {
+                font-family: "Jost", sans-serif;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                font-size: 1rem;
+                margin-right: 10px;
+            }
+            @media (max-width: 1200px) {
+                html,
+                body {
+                    min-width: 900px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div>
+                    <h1>Rusty<br />Meadows</h1>
+                    <div class="intro">
+                        I am a creative strategist and engineer with<br />
+                        more than 10 years of experience building and
+                        launching<br />
+                        impactful, engaging brands and digital experiences.<br /><br />
+                        I am currently exploring the exciting frontier of<br />
+                        generative AI and creative automation.
+                    </div>
+                    <h2>Projects</h2>
+                    <ul class="projects-list">
+                        <li>I've Seen the Future</li>
+                        <li>Interpolations</li>
+                        <li>Reveal</li>
+                        <li>Nearly Impossible</li>
+                    </ul>
+                    <h2>Clients + Work</h2>
+                    <ul class="clients-list">
+                        <li>Roman & Williams GUILD</li>
+                        <li>Sugar Paper</li>
+                        <li>LUMI</li>
+                        <li>Down to Shop</li>
+                        <li>Tattly</li>
+                        <li>Macy’s</li>
+                        <li>Shopify</li>
+                        <li>TBD</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-bar">
+                <span>LET’S CONNECT</span>
+                <a href="mailto:hello@example.com">Email</a> ·
+                <a href="#" target="_blank">LinkedIn</a> ·
+                <a href="#" target="_blank">X/Twitter</a>
+            </div>
+        </aside>
+        <main class="main">
+            <div class="project-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&w=400&q=80"
+                        alt="Model portrait placeholder"
+                    />
+                    <div class="project-label">
+                        AI Reference Library – Models
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="project-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+                        alt="Party decor placeholder"
+                    />
+                    <div class="project-label">Party Decor Auto-Stylist</div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                        alt="Prompting color"
+                    />
+                    <div class="project-label">Prompting Color</div>
+                </div>
+                <!-- Project Card 4 -->
+                <div class="project-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=400&q=80"
+                        alt="Fine art styles"
+                    />
+                    <div class="project-label">
+                        AI Reference Library – Fine Art Styles
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
