@@ -13,7 +13,8 @@
             :root {
                 --border: 20px;
                 --gutter: 20px;
-                --bg: #f6f2ea;
+                --bg: #fff;
+                --sidebar-bg: #ebe4da;
                 --text: #191815;
                 --headline: #101010;
                 --cta: #232318;
@@ -21,7 +22,7 @@
                 --label-bg: rgba(245, 242, 225, 0.94);
                 --label-text: #191815;
                 --card-bg: #fff;
-                --card-radius: 8px;
+                --card-radius: 0px;
             }
             html,
             body {
@@ -48,19 +49,18 @@
             .sidebar {
                 grid-row: 1 / 7;
                 grid-column: 1 / 5;
-                background: var(--bg);
+                background: var(--sidebar-bg);
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 position: sticky;
                 left: 0;
                 top: 0;
-                padding: 0 0 0 10px;
+                padding: 20px;
                 z-index: 10;
-                border-radius: 16px;
             }
             .sidebar-content {
-                padding: 0 0 0 0;
+                padding: 30px 0 0 30px;
                 display: flex;
                 flex-direction: column;
                 gap: 28px;
@@ -148,21 +148,33 @@
             }
             .projects-list,
             .clients-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 18px 28px; /* row, then col gap */
+                list-style: none;
+                padding-left: 0;
                 margin: 0 0 10px 0;
-                padding-left: 16px;
             }
             .projects-list li,
             .clients-list li {
+                display: inline;
                 font-family: "Fraunces", serif;
                 font-size: 1.04rem;
-                margin-bottom: 2px;
+                margin-bottom: 0;
                 color: var(--text);
+                position: relative;
+            }
+            .projects-list li:not(:last-child)::after,
+            .clients-list li:not(:last-child)::after {
+                content: "·";
+                margin: 0 14px;
+                color: #aaa;
+                font-weight: 400;
             }
             .contact-bar {
                 margin-top: 12px;
                 background: var(--cta);
                 color: var(--cta-text);
-                border-radius: 6px;
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
