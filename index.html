@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=1200" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Rusty Meadows – Creative Strategist & Engineer</title>
         <!-- Google Fonts -->
         <link
@@ -33,14 +33,12 @@
                 font-family: "Fraunces", serif;
                 font-weight: 300;
                 font-size: 16px;
-                line-height: 28px;
-                letter-spacing: 3%;
+                line-height: 1.75;
                 color: var(--text);
             }
             body {
                 box-sizing: border-box;
                 min-height: 100vh;
-                min-width: 1200px;
                 border: var(--border) solid var(--bg);
                 display: grid;
                 grid-template-columns: repeat(10, 1fr);
@@ -49,6 +47,7 @@
                 height: 100vh;
                 width: 100vw;
                 overflow: hidden;
+                padding: 0;
             }
             .sidebar {
                 grid-row: 1 / 7;
@@ -62,6 +61,7 @@
                 top: 0;
                 padding: 20px;
                 z-index: 10;
+                border-radius: 0;
             }
             .sidebar-content {
                 padding: 30px 0 0 20px;
@@ -76,6 +76,7 @@
                 flex-direction: column;
                 height: 100%;
                 overflow: hidden;
+                background: var(--bg);
             }
             .project-grid {
                 display: grid;
@@ -118,7 +119,7 @@
                 background: var(--label-bg);
                 color: var(--label-text);
                 font-family: "Jost", sans-serif;
-                font-size: 16px;
+                font-size: 1.1rem;
                 font-weight: normal;
                 padding: 20px 0 20px 0;
                 text-align: center;
@@ -139,21 +140,22 @@
                 margin: 0;
             }
             h1 {
-                font-size: 100px;
+                font-size: clamp(2.5rem, 6vw, 100px);
                 line-height: 0.8;
                 margin-bottom: 0.18em;
+                letter-spacing: -0.01em;
             }
             h2 {
-                font-size: 22px;
+                font-size: clamp(1.1rem, 2vw, 22px);
                 font-weight: 700;
                 margin: 40px 0 6px 0;
-                letter-spacing: 6%;
+                letter-spacing: 0.06em;
             }
             .projects-list,
             .clients-list {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 12px 0px; /* row, then col gap */
+                gap: 12px 0px;
                 list-style: none;
                 padding-left: 0;
                 margin: 0 0 10px 0;
@@ -176,27 +178,30 @@
                 margin: 0 8px;
                 color: #000;
                 font-weight: 400;
-                font-size: 18;
+                font-size: 18px;
             }
             .contact-bar {
                 display: flex;
-                align-items: center; /* vertical centering */
+                align-items: center;
                 gap: 10px;
                 background: var(--cta);
                 color: var(--cta-text);
-                border-radius: 6px;
-                padding: 10px 20px; /* more vertical padding for balance */
+                padding: 10px 20px;
                 font-size: 1.01rem;
                 justify-content: space-between;
             }
             .contact-bar span {
                 display: inline-block;
                 vertical-align: middle;
-                margin-right: 0;
+                font-family: "Fraunces", serif;
+                font-weight: normal;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                font-size: 1rem;
             }
             .contact-list {
                 display: flex;
-                align-items: center; /* vertical centering for the list itself */
+                align-items: center;
                 flex-wrap: wrap;
                 gap: 0 0;
                 list-style: none;
@@ -205,7 +210,7 @@
             }
             .contact-list li {
                 display: flex;
-                align-items: center; /* ensures bullets and links are centered together */
+                align-items: center;
                 font-family: "Jost", sans-serif;
                 font-size: 1.04rem;
                 color: var(--cta-text);
@@ -215,7 +220,7 @@
                 margin: 0 8px;
                 color: #fff;
                 font-weight: 400;
-                font-size: 18;
+                font-size: 18px;
             }
             .contact-bar a {
                 color: var(--cta-text);
@@ -231,17 +236,74 @@
                 color: #c6b774;
                 text-decoration: underline;
             }
-            .contact-bar span {
-                font-family: "Fraunces", serif;
-                font-weight: normal;
-                text-transform: uppercase;
-                letter-spacing: 0.07em;
-                font-size: 1rem;
-            }
-            @media (max-width: 1200px) {
-                html,
+
+            /* Responsive: keep 2-col until 1050px */
+            @media (max-width: 1050px) {
+                :root {
+                    --border: 12px;
+                    --gutter: 12px;
+                }
                 body {
-                    min-width: 900px;
+                    min-width: 0;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: auto 1fr;
+                    height: auto;
+                    border-width: var(--border);
+                    padding: 0;
+                    overflow: scroll;
+                }
+                .sidebar {
+                    grid-column: 1 / 2;
+                    grid-row: 1;
+                    border-right: none;
+                    position: relative;
+                }
+                .main {
+                    grid-column: 1 / 2;
+                    grid-row: 2;
+                    width: 100%;
+                    background: var(--bg);
+                    padding-right: 0; /* keeps right border/gap */
+                }
+                .project-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    padding: 0; /* small left, right pad */
+                    gap: 20px;
+                }
+            }
+            /* Tablet/mobile tweaks */
+            @media (max-width: 800px) {
+                .main,
+                .sidebar {
+                    padding: 0;
+                }
+                .project-grid {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 12px;
+                }
+                h1 {
+                    font-size: clamp(1.7rem, 8vw, 2.8rem);
+                }
+                h2 {
+                    font-size: clamp(1rem, 4vw, 1.25rem);
+                    margin: 20px 0 4px 0;
+                }
+            }
+            /* Phone: grid goes 1-col, still padded */
+            @media (max-width: 600px) {
+                .project-grid {
+                    grid-template-columns: 1fr;
+                    padding: 0;
+                }
+                .main {
+                    padding: 0 !important;
+                }
+
+                .sidebar {
+                    padding: 12px !important;
+                }
+                h1 {
+                    font-size: clamp(1.1rem, 10vw, 2rem);
                 }
             }
         </style>
