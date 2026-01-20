@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.125rem;
+}
