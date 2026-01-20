@@ -1,15 +1,160 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Rusty Meadows</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main>
-      <p>New rusty meadows site coming soon</p>
-    </main>
-    <script src="script.js"></script>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Rusty Meadows</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&family=Manrope:wght@200..800&display=swap"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <main class="layout">
+            <section class="section-one">
+                <div class="stack-group">
+                    <div class="stack">
+                        <h1>Rusty meadows</h1>
+                        <h2>
+                            I am a creative strategist, marketer, and engineer
+                            with more than 10 years of experience building and
+                            launching impactful, engaging brands and digital
+                            experiences.
+                        </h2>
+                        <h4>Open to new clients</h4>
+                        <p>
+                            I am currently exploring the exciting frontier of
+                            generative AI and creative force-multipliers.
+                        </p>
+                    </div>
+                    <div class="stack">
+                        <!--<h4>Currently looking for</h4>
+                        <p>
+                            I am currently exploring the exciting frontier of
+                            generative AI and creative force-multipliers.
+                        </p>-->
+                    </div>
+                    <div class="stack">
+                        <!--<h4>Contact</h4>-->
+                        <ul class="list-inline-dots">
+                            <li><a class="button" href="#">Email</a></li>
+                            <li><a class="button" href="#">LinkedIn</a></li>
+                            <li><a class="button" href="#">X</a></li>
+                            <li><a class="button" href="#">GitHub</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="section-two">
+                <div class="project-listing-hold">
+                    <h3>Current Projects</h3>
+                    <ul class="project-listing">
+                        <li data-project="reveal">Creative AI</li>
+                        <li data-project="interpolations">Interpolations</li>
+                        <li data-project="guild">LAB</li>
+                    </ul>
+                </div>
+                <div class="project-listing-hold">
+                    <h3>Past Work</h3>
+                    <ul class="project-listing">
+                        <li data-project="reveal">Reveal</li>
+                        <li data-project="guild">GUILD</li>
+                        <li data-project="lumi">Lumi</li>
+                        <li data-project="tattly">Tattly</li>
+                        <li data-project="superhi">SuperHi</li>
+                        <li data-project="quarterly">Quarterly</li>
+                    </ul>
+                </div>
+            </section>
+            <section
+                class="project-showcase section-three"
+                aria-label="Project details"
+            >
+                <div class="project-panel project-panel--default">
+                    <img
+                        src="https://placehold.co/640x360"
+                        alt="Project highlights preview"
+                    />
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Vivamus lacinia odio vitae vestibulum vestibulum.
+                    </p>
+                </div>
+                <div class="project-panel" data-project="interpolations">
+                    <img
+                        src="https://placehold.co/640x360"
+                        alt="Interpolations preview"
+                    />
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Integer nec odio. Praesent libero.
+                    </p>
+                </div>
+                <div class="project-panel" data-project="reveal">
+                    <img
+                        src="https://placehold.co/640x360"
+                        alt="Reveal preview"
+                    />
+                    <p>
+                        Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem
+                        at nibh elementum imperdiet.
+                    </p>
+                </div>
+                <div class="project-panel" data-project="guild">
+                    <img
+                        src="https://placehold.co/640x360"
+                        alt="GUILD preview"
+                    />
+                    <p>
+                        Duis sagittis ipsum. Praesent mauris. Fusce nec tellus
+                        sed augue semper porta.
+                    </p>
+                </div>
+                <div class="project-panel" data-project="lumi">
+                    <img
+                        src="https://placehold.co/640x360"
+                        alt="Lumi preview"
+                    />
+                    <p>
+                        Mauris ipsum. Nulla metus metus, ullamcorper vel,
+                        tincidunt sed, euismod in, nibh.
+                    </p>
+                </div>
+                <div class="project-panel" data-project="tattly">
+                    <img
+                        src="https://placehold.co/640x360"
+                        alt="Tattly preview"
+                    />
+                    <p>
+                        Quisque volutpat condimentum velit. Class aptent taciti
+                        sociosqu ad litora torquent.
+                    </p>
+                </div>
+                <div class="project-panel" data-project="quarterly">
+                    <img
+                        src="https://placehold.co/640x360"
+                        alt="Tattly preview"
+                    />
+                    <p>
+                        Quisque volutpat condimentum velit. Class aptent taciti
+                        sociosqu ad litora torquent.
+                    </p>
+                </div>
+                <div class="project-panel" data-project="superhi">
+                    <img
+                        src="https://placehold.co/640x360"
+                        alt="Tattly preview"
+                    />
+                    <p>
+                        Quisque volutpat condimentum velit. Class aptent taciti
+                        sociosqu ad litora torquent.
+                    </p>
+                </div>
+            </section>
+        </main>
+        <script src="script.js"></script>
+    </body>
 </html>
