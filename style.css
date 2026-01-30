@@ -199,6 +199,12 @@ img {
     .project-panel[data-project="tattly"],
 .layout:has(.project-listing li[data-project="quarterly"]:hover)
     .project-panel[data-project="quarterly"],
+.layout:has(.project-listing li[data-project="dts"]:hover)
+    .project-panel[data-project="dts"],
+.layout:has(.project-listing li[data-project="ai"]:hover)
+    .project-panel[data-project="ai"],
+.layout:has(.project-listing li[data-project="lab"]:hover)
+    .project-panel[data-project="lab"],
 .layout:has(.project-listing li[data-project="superhi"]:hover)
     .project-panel[data-project="superhi"] {
     opacity: 1;
