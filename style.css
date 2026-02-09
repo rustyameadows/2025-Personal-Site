@@ -234,13 +234,66 @@ html:not(.js-enabled)
     .layout:has(.project-listing li[data-project="lab"]:hover)
     .project-panel[data-project="lab"],
 html:not(.js-enabled)
+    .layout:has(.project-listing li[data-project="nearly"]:hover)
+    .project-panel[data-project="nearly"],
+html:not(.js-enabled)
     .layout:has(.project-listing li[data-project="superhi"]:hover)
     .project-panel[data-project="superhi"] {
     opacity: 1;
 }
 
 @media (max-width: 720px) {
+    body {
+        padding: 1.25rem;
+    }
+
     .layout {
         grid-template-columns: 1fr;
+        height: auto;
+        gap: 28px;
+    }
+
+    h2 {
+        padding-right: 0;
+    }
+
+    .stack p {
+        margin-right: 0;
+    }
+
+    /* Mobile: keep only the "My Work" header and use the showcase as the nav (carousel). */
+    .project-listing {
+        display: none;
+    }
+
+    .section-two {
+        height: auto;
+        align-content: start;
+        gap: 12px;
+    }
+
+    .project-showcase {
+        height: auto;
+        display: flex;
+        align-content: initial;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 10vw;
+        gap: 16px;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .project-panel {
+        flex: 0 0 80vw;
+        grid-area: auto;
+        opacity: 1;
+        transition: none;
+        scroll-snap-align: start;
+    }
+
+    .project-panel img {
+        border-radius: 0;
     }
 }
