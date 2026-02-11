@@ -100,8 +100,8 @@ img {
 
 .layout {
     display: grid;
-    grid-template-columns: 35fr 25fr 40fr;
-    gap: 40px;
+    grid-template-columns: 32fr 28fr 40fr;
+    gap: 20px;
     align-items: stretch;
     height: calc(100vh - 4rem);
 }
@@ -163,6 +163,7 @@ img {
 
 .project-listing li {
     font-size: 38px;
+    letter-spacing: -0.5px;
     color: #e32d00;
     transition: color 180ms ease-out;
     cursor: pointer;
