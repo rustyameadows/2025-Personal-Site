@@ -106,6 +106,11 @@
                 margin: 0;
             }
 
+            .contact-lines a {
+                overflow-wrap: anywhere;
+                word-break: break-word;
+            }
+
             .contact-lines {
                 display: grid;
                 grid-template-columns: 35% repeat(3, minmax(0, 1fr));
@@ -137,6 +142,10 @@
                 .pitch-hero h1 {
                     font-size: clamp(2.1rem, 11vw, 2.9rem);
                     letter-spacing: -0.8px;
+                }
+
+                .contact-lines {
+                    grid-template-columns: 1fr;
                 }
             }
         </style>
