@@ -145,7 +145,11 @@
                 }
 
                 .contact-lines {
-                    grid-template-columns: 1fr;
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                }
+
+                .contact-lines p:first-of-type {
+                    grid-column: 1 / -1;
                 }
             }
         </style>
