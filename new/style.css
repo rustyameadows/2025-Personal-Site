@@ -81,10 +81,13 @@ body {
     margin: 0;
     width: 720px;
     text-align: center;
+    text-transform: uppercase;
     font-family: "Fraunces", serif;
-    font-size: 60px;
-    line-height: 72px;
-    font-weight: 400;
+    font-size: 75px;
+    line-height: 65px;
+    letter-spacing: -3px;
+    font-weight: 300;
+    color: #08367d;
 }
 
 .body-stack {
