@@ -1,0 +1,259 @@
+:root {
+    --page-bg: #ffffff;
+    --dot-color: rgba(0, 0, 0, 0.46);
+    --frame-border: #bcbcbc;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    background: var(--page-bg);
+    color: #000000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+    position: relative;
+    width: 100%;
+    min-height: 1091px;
+    overflow: clip;
+    background: var(--page-bg);
+}
+
+.dot-shader {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    background-color: var(--page-bg);
+}
+
+.dot-shader.no-webgl {
+    background-image: radial-gradient(
+        circle,
+        var(--dot-color) 1.5px,
+        transparent 1.5px
+    );
+    background-size: 22px 22px;
+}
+
+.main-wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 84px 0 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.content-holder {
+    width: 860px;
+    border: 1.5px solid var(--frame-border);
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.content-stack {
+    width: 800px;
+    padding: 70px 40px 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+}
+
+.headline {
+    margin: 0;
+    width: 720px;
+    text-align: center;
+    font-family: "Fraunces", serif;
+    font-size: 60px;
+    line-height: 72px;
+    font-weight: 400;
+}
+
+.body-stack {
+    width: 100%;
+    padding: 0 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.copy-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.body-stack > .copy-group:last-child {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    padding: 30px 14px;
+    background: transparent;
+    border: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+}
+
+/*.body-stack > .copy-group:last-child p {
+    font-weight: 800;
+}*/
+
+.body-stack > .copy-group:last-child::before {
+    content: "";
+    position: absolute;
+    inset: -38px -22px;
+    z-index: -1;
+    background: radial-gradient(
+        120% 95% at 50% 50%,
+        rgba(108, 165, 232, 70%) 0%,
+        rgba(214, 233, 255, 0.85) 42%,
+        rgba(214, 233, 255, 0.25) 80%,
+        rgba(214, 233, 255, 0) 100%
+    );
+    filter: blur(30px);
+    pointer-events: none;
+}
+
+.work-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.section-title {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-family: "Manrope", sans-serif;
+    font-size: 13px;
+    line-height: 13px;
+    font-weight: 800;
+}
+
+.work-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.body-copy {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 0.02em;
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.work-item {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 0;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 400;
+}
+
+.work-item .work-link {
+    font: inherit;
+}
+
+.work-link,
+.work-link:visited,
+.email-link,
+.email-link:visited {
+    color: #362ef8;
+    color: color(display-p3 0.213 0.181 0.972);
+}
+
+/*.work-item::before {
+    content: "*";
+    display: inline-block;
+    line-height: 1;
+    padding-right: 0.3em;
+    transform: translateY(0.18em);
+}*/
+
+@media (max-width: 860px) {
+    .page {
+        min-height: auto;
+    }
+
+    .main-wrap {
+        position: relative;
+        padding: 32px 16px 56px;
+    }
+
+    .content-holder {
+        width: 100%;
+    }
+
+    .content-stack {
+        width: 100%;
+        padding: 48px 20px 72px;
+        gap: 44px;
+    }
+
+    .headline {
+        width: 100%;
+        font-size: 44px;
+        line-height: 52px;
+    }
+
+    .body-stack {
+        padding: 0;
+        gap: 40px;
+    }
+
+    .copy-group {
+        gap: 16px;
+    }
+
+    .work-group {
+        gap: 12px;
+    }
+
+    .body-copy {
+        line-height: 26px;
+    }
+
+    .section-title {
+        line-height: 24px;
+    }
+
+    .desktop-break {
+        display: none;
+    }
+}
