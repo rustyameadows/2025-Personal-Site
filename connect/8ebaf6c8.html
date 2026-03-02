@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Internal Tools Developer | Rusty Meadows</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&family=Manrope:wght@200..800&display=swap"
+        />
+        <link rel="stylesheet" href="../style.css" />
+        <style>
+            :root {
+                --pitch-red: #e32d00;
+                --pitch-red-dark: #08367d;
+            }
+
+            .pitch-layout {
+                max-width: 1020px;
+                margin: 0 auto;
+                display: grid;
+                gap: 0;
+            }
+
+            .pitch-hero {
+                max-width: 860px;
+            }
+
+            .pitch-hero h1 {
+                margin-bottom: 0.75rem;
+                line-height: 0.95;
+                color: var(--pitch-red-dark);
+                font-size: clamp(2.4rem, 10vw, 4.4rem);
+                letter-spacing: -1.2px;
+            }
+
+            .pitch-hero h2 {
+                margin: 0.15rem 0 0.55rem;
+                font-family: var(--font-sans-serif);
+                font-size: 1.05rem;
+                font-weight: 700;
+                letter-spacing: 0.4px;
+                color: #000;
+            }
+
+            .pitch-hero p {
+                font-family: var(--font-sans-serif);
+                font-size: 1.1rem;
+                line-height: 1.55;
+                margin: 0.35rem 0;
+            }
+
+            .pitch-section {
+                display: grid;
+                gap: 0.55rem;
+                padding: 2.5rem 0;
+            }
+
+            .pitch-section + .pitch-section {
+                border-top: 1px solid #e7ddd7;
+            }
+
+            .pitch-section h3 {
+                margin-bottom: 0.5rem;
+                color: var(--pitch-red);
+            }
+
+            .pitch-list {
+                list-style: disc;
+                padding-left: 1.2rem;
+                display: grid;
+                gap: 0.35rem;
+                max-width: 840px;
+            }
+
+            .pitch-list li {
+                font-size: 1.08rem;
+                line-height: 1.35;
+                color: #000;
+            }
+
+            .cta {
+                display: inline-block;
+                text-decoration: none;
+                font-family: var(--font-sans-serif);
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+                color: var(--pitch-red);
+                border-bottom: 2px solid var(--pitch-red);
+                padding-bottom: 2px;
+                width: fit-content;
+            }
+
+            .cta:hover {
+                color: var(--pitch-red-dark);
+                border-bottom-color: var(--pitch-red-dark);
+            }
+
+            .tool-gallery {
+                gap: 1rem;
+            }
+
+            .tool-gallery p {
+                margin: 0;
+                max-width: 860px;
+            }
+
+            .carousel-shell {
+                display: grid;
+                gap: 0.85rem;
+            }
+
+            .carousel-nav {
+                display: flex;
+                justify-content: flex-end;
+                gap: 0.5rem;
+            }
+
+            .carousel-btn {
+                border: 1px solid #c9b8ac;
+                background: #fff;
+                color: #111;
+                font-family: var(--font-sans-serif);
+                font-weight: 700;
+                font-size: 0.88rem;
+                letter-spacing: 0.4px;
+                text-transform: uppercase;
+                padding: 0.4rem 0.7rem;
+                cursor: pointer;
+            }
+
+            .carousel-btn:hover,
+            .carousel-btn:focus-visible {
+                border-color: var(--pitch-red);
+                color: var(--pitch-red);
+                outline: none;
+            }
+
+            .carousel-track {
+                display: grid;
+                grid-auto-flow: column;
+                grid-auto-columns: calc((100% - 1rem) / 1.25);
+                gap: 1rem;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                padding-bottom: 0.35rem;
+                scrollbar-width: thin;
+                scrollbar-color: #cfbdb1 #f4ede8;
+            }
+
+            .tool-card {
+                border: 1px solid #e7ddd7;
+                background: #fff;
+                padding: 0.8rem;
+                display: grid;
+                gap: 0.55rem;
+                scroll-snap-align: start;
+            }
+
+            .tool-card h4 {
+                margin: 0;
+                font-family: var(--font-sans-serif);
+                font-size: 1rem;
+                letter-spacing: 0.2px;
+            }
+
+            .tool-card video {
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                background: #111;
+                border: 1px solid #ded4ce;
+                display: block;
+            }
+
+            .tool-card p {
+                font-family: var(--font-sans-serif);
+                font-size: 0.98rem;
+                line-height: 1.45;
+                margin: 0;
+            }
+
+            .contact-lines p {
+                font-family: var(--font-sans-serif);
+                font-size: 1rem;
+                line-height: 1.5;
+                margin: 0;
+            }
+
+            .contact-lines a {
+                overflow-wrap: anywhere;
+                word-break: break-word;
+            }
+
+            .contact-lines {
+                display: grid;
+                grid-template-columns: 35% repeat(3, minmax(0, 1fr));
+                gap: 0.75rem 1rem;
+                align-items: start;
+            }
+
+            .contact-lines h3 {
+                grid-column: 1 / -1;
+            }
+
+            @media (max-width: 720px) {
+                body {
+                    padding: 1.25rem;
+                }
+
+                .pitch-layout {
+                    gap: 0;
+                }
+
+                .pitch-section {
+                    padding: 1.05rem 0;
+                }
+
+                .pitch-list li {
+                    font-size: 1rem;
+                }
+
+                .pitch-hero h1 {
+                    font-size: clamp(2.1rem, 11vw, 2.9rem);
+                    letter-spacing: -0.8px;
+                }
+
+                .contact-lines {
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                }
+
+                .contact-lines p:first-of-type {
+                    grid-column: 1 / -1;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="pitch-layout">
+            <section class="pitch-hero pitch-section" aria-label="Hero">
+                <h1>Internal Tools Developer</h1>
+                <h2>
+                    Rusty Meadows builds one-off software tools for companies and
+                    creators that need leverage fast.
+                </h2>
+                <p>
+                    Rusty is most effective where teams are shipping quickly,
+                    workflows keep breaking, and off-the-shelf software does not
+                    fit how work actually gets done.
+                </p>
+                <p>
+                    He turns messy internal process into practical tools: ops
+                    dashboards, automations, intake systems, lightweight CRMs,
+                    and custom AI-assisted workflows that remove repetitive drag.
+                </p>
+                <a class="cta" href="#contact">Let's connect</a>
+            </section>
+
+            <section class="pitch-section" aria-label="Core Build Focus">
+                <h3>Core Build Focus</h3>
+                <ul class="pitch-list">
+                    <li>Map where teams lose time, then design targeted tools</li>
+                    <li>Build fast, useful software without enterprise overhead</li>
+                    <li>Automate recurring operational and creative workflows</li>
+                    <li>Connect fragmented systems into one clean operating loop</li>
+                    <li>Ship tools people actually use, not shelfware</li>
+                </ul>
+            </section>
+
+            <section class="pitch-section tool-gallery" aria-label="Tool Gallery">
+                <h3>Example Tool Builds (Mock Gallery)</h3>
+                <p>
+                    A few sample formats of the one-off tools I build. These are
+                    mock examples to preview style and scope.
+                </p>
+                <div class="carousel-shell">
+                    <div class="carousel-nav" aria-label="Gallery controls">
+                        <button type="button" class="carousel-btn" data-dir="prev">
+                            Prev
+                        </button>
+                        <button type="button" class="carousel-btn" data-dir="next">
+                            Next
+                        </button>
+                    </div>
+                    <div class="carousel-track" id="tool-carousel">
+                        <article class="tool-card">
+                            <h4>Creator Sponsor Ops Console</h4>
+                            <video
+                                controls
+                                muted
+                                playsinline
+                                preload="metadata"
+                                poster="../assets/reveal-home.jpg"
+                            >
+                                <source
+                                    src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+                                    type="video/mp4"
+                                />
+                            </video>
+                            <p>
+                                Intake-to-delivery tracker for brand deals,
+                                pulling deliverables, revision state, and payment
+                                milestones into one clear timeline.
+                            </p>
+                        </article>
+
+                        <article class="tool-card">
+                            <h4>Internal Launch Readiness Board</h4>
+                            <video
+                                controls
+                                muted
+                                playsinline
+                                preload="metadata"
+                                poster="../assets/lab-home.jpg"
+                            >
+                                <source
+                                    src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+                                    type="video/mp4"
+                                />
+                            </video>
+                            <p>
+                                A cross-team checkpoint board that flags blockers,
+                                owner drift, and launch-risk tasks before they
+                                become last-minute fire drills.
+                            </p>
+                        </article>
+
+                        <article class="tool-card">
+                            <h4>Support Triage Autopilot</h4>
+                            <video
+                                controls
+                                muted
+                                playsinline
+                                preload="metadata"
+                                poster="../assets/interpolations-home.jpg"
+                            >
+                                <source
+                                    src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+                                    type="video/mp4"
+                                />
+                            </video>
+                            <p>
+                                Lightweight routing system that categorizes
+                                inbound requests, drafts response options, and
+                                sends edge cases to the right human instantly.
+                            </p>
+                        </article>
+
+                        <article class="tool-card">
+                            <h4>Field Sales Follow-up Engine</h4>
+                            <video
+                                controls
+                                muted
+                                playsinline
+                                preload="metadata"
+                                poster="../assets/down-to-shop-home.jpg"
+                            >
+                                <source
+                                    src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+                                    type="video/mp4"
+                                />
+                            </video>
+                            <p>
+                                Pop-up CRM for teams selling in the field, with
+                                contact capture, reminder sequences, and simple
+                                conversion reporting for weekly decisions.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="pitch-section"
+                aria-label="Where I Tend to Move the Needle"
+            >
+                <h3>Where I Tend to Move the Needle</h3>
+                <ul class="pitch-list">
+                    <li>
+                        Teams stop duct-taping workflows across four different
+                        tools
+                    </li>
+                    <li>
+                        Founders and operators get visibility into real bottleneck
+                        patterns
+                    </li>
+                    <li>
+                        Repetitive admin load drops so teams spend more time
+                        shipping
+                    </li>
+                    <li>
+                        Internal handoffs get cleaner between creative, ops, and
+                        delivery
+                    </li>
+                    <li>
+                        Useful software ships in days or weeks instead of quarter
+                        cycles
+                    </li>
+                </ul>
+            </section>
+
+            <section class="pitch-section" aria-label="Ways to Work Together">
+                <h3>Ways to Work Together</h3>
+                <ul class="pitch-list">
+                    <li>Project-based internal tool builds</li>
+                    <li>Embedded build sprints for urgent workflow bottlenecks</li>
+                    <li>Fractional product and automation support</li>
+                </ul>
+            </section>
+
+            <section class="pitch-section" aria-label="About">
+                <h3>About Rusty</h3>
+                <ul class="pitch-list">
+                    <li>
+                        15+ years building and scaling systems across product,
+                        operations, and founder-led companies
+                    </li>
+                    <li>
+                        Strong in ambiguous environments where speed matters more
+                        than process theater
+                    </li>
+                    <li>
+                        Bridges technical execution with real business needs and
+                        day-to-day team behavior
+                    </li>
+                    <li>
+                        Comfortable shipping from rough idea through production
+                        adoption
+                    </li>
+                    <li>
+                        Default mode is practical leverage: fewer clicks, less
+                        confusion, more output
+                    </li>
+                </ul>
+            </section>
+
+            <section
+                class="pitch-section contact-lines"
+                id="contact"
+                aria-label="Contact"
+            >
+                <h3>Let's Talk</h3>
+                <p>
+                    Email:<br /><a href="mailto:rustyameadows@gmail.com"
+                        >rustyameadows@gmail.com</a
+                    >
+                </p>
+                <p>
+                    LinkedIn:<br /><a
+                        href="https://linkedin.com/in/rustymeadows"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >rustymeadows</a
+                    >
+                </p>
+                <p>
+                    X:<br /><a
+                        href="https://x.com/rameadows"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >@rameadows</a
+                    >
+                </p>
+                <p>
+                    GitHub:<br /><a
+                        href="https://github.com/rustymeadows"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >rustymeadows</a
+                    >
+                </p>
+            </section>
+        </main>
+        <script>
+            (function () {
+                const track = document.getElementById("tool-carousel");
+                if (!track) return;
+
+                const buttons = document.querySelectorAll(".carousel-btn");
+                const getStep = () => {
+                    const firstCard = track.querySelector(".tool-card");
+                    if (!firstCard) return 360;
+                    const styles = window.getComputedStyle(track);
+                    const gap = parseFloat(styles.columnGap || styles.gap || "16");
+                    return firstCard.getBoundingClientRect().width + gap;
+                };
+
+                buttons.forEach((button) => {
+                    button.addEventListener("click", () => {
+                        const direction = button.dataset.dir === "prev" ? -1 : 1;
+                        track.scrollBy({
+                            left: getStep() * direction,
+                            behavior: "smooth"
+                        });
+                    });
+                });
+            })();
+        </script>
+    </body>
+</html>
