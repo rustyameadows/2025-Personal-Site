@@ -173,6 +173,10 @@ body {
     font: inherit;
 }
 
+.mobile-break {
+    display: none;
+}
+
 .work-link,
 .work-link:visited,
 .email-link,
@@ -238,5 +242,9 @@ body {
 
     .desktop-break {
         display: none;
+    }
+
+    .mobile-break {
+        display: inline;
     }
 }
